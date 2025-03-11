@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  password     String
+  firstName    String
+  lastName     String
+  displayName  String
+  address      String
+  phoneNumber  String
+  bio          String?
+  profilePhoto String?
+  role         Role     @default(READER) 
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  checkouts    Checkout[]
+
+  @@index([email])
+}
+
+
+enum Role {
+  SUPERADMIN  // Added superadmin role
+  LIBRARIAN  // Existing librarian role
+  READER     // Existing reader role
+}
+
+model Book {
+  id              Int      @id @default(autoincrement())
+  title           String
+  bookPhoto       String
+  isbn            String   @unique
+  coverPage       String?  // Optional for book cover URL
+  revisionNumber  Int
+  publishedDate   DateTime
+  publisher       String
+  authors         String   // Can be updated later to relation if needed
+  genre           String
+  dateAdded       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  checkouts       Checkout[]
+
+  @@index([isbn])
+}
+
+model Checkout {
+  id                 Int       @id @default(autoincrement())
+  userId             Int
+  bookId             Int
+  checkoutDate       DateTime  @default(now())
+  expectedCheckinDate DateTime
+  checkinDate        DateTime?
+  status             CheckoutStatus @default(CHECKED_OUT)
+
+  // Relationships
+  user               User      @relation(fields: [userId], references: [id])
+  book               Book      @relation(fields: [bookId], references: [id])
+
+  @@index([userId])
+  @@index([bookId])
+}
+
+enum CheckoutStatus {
+  CHECKED_OUT
+  RETURNED
+  OVERDUE
+}
+
+
+
