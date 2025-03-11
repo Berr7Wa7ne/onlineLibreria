@@ -7,6 +7,8 @@ const OverDueBook = () => {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
 
+  const API_BASE_URL = process.env.VITE_BACKEND_URL;
+
   //function for fetching overdue books
   const fetchOverdueBooks = async () => {
     try {
@@ -15,7 +17,7 @@ const OverDueBook = () => {
         setError('No token found, please log in.');
         return;
       }
-      const response = await axios.get('http://localhost:5000/librarian/overdue', {
+      const response = await axios.get(`${API_BASE_URL}/librarian/overdue`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setOverdueBooks(response.data);
@@ -33,7 +35,7 @@ const OverDueBook = () => {
         setError('No token found, please log in.');
         return;
       }
-      await axios.post('http://localhost:5000/librarian/notify-librarian', {}, {
+      await axios.post(`${API_BASE_URL}/librarian/notify-librarian`, {}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessage('Reminder sent successfully to all librarians.');

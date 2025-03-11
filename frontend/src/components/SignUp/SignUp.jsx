@@ -29,11 +29,13 @@ const SignUp = () => {
     setFormData({ ...formData, profilePhoto: e.target.files[0] });
   };
 
+  const API_BASE_URL = process.env.VITE_BACKEND_URL;
+
   const handleSignUp = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/auth/register', formData);
+      const response = await axios.post(`${API_BASE_URL}/auth/register`, formData);
       console.log('Registration successful:', response.data);
       navigate('/login');
     } catch (err) {

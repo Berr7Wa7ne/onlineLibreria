@@ -14,11 +14,13 @@ const HeroSection = () => {
     setSearchQuery(e.target.value);
   };
 
+  const API_BASE_URL = process.env.VITE_BACKEND_URL;
+
   const handleSearch = async (e) => {
     e.preventDefault();
     setError("");
     try {
-      const response = await axios.get("http://localhost:5000/book/searchBooks", {
+      const response = await axios.get(`${API_BASE_URL}/book/searchBooks`, {
         params: { title: searchQuery },
       });
       const results = response.data;

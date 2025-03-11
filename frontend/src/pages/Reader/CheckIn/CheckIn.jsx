@@ -8,6 +8,8 @@ const CheckIn = ({ initialCheckouts = [] }) => {
 const [checkouts, setCheckouts] = useState(initialCheckouts || []);
 const [loading, setLoading] = useState(null); // Track loading per book
 
+const API_BASE_URL = process.env.VITE_BACKEND_URL;
+
 // Fetch checkouts when the component mounts
 useEffect(() => {
   const fetchCheckouts = async () => {
@@ -18,7 +20,7 @@ useEffect(() => {
         return;
       }
   
-      const response = await axios.get("http://localhost:5000/check/get-checkout", {
+      const response = await axios.get(`${API_BASE_URL}/check/get-checkout`, {
         headers: { Authorization: `Bearer ${token}` },
       });
   
@@ -44,7 +46,7 @@ useEffect(() => {
       console.log("This is the token chekin endpoint", token)
 
       setLoading(id);
-      const response = await axios.patch(`http://localhost:5000/check/checkin/${id}`,{}, {
+      const response = await axios.patch(`${API_BASE_URL}/check/checkin/${id}`,{}, {
         headers: { Authorization: `Bearer ${token}` }, // Use storedToken instead of token st
       });
       console.log(response.data);

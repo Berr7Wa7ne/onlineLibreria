@@ -19,6 +19,8 @@ const ManageLibrarian = () => {
     setProfilePhoto(e.target.files[0]);
   };
 
+  const API_BASE_URL = process.env.VITE_BACKEND_URL;
+
   // Function to submit librarian registration form
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +37,7 @@ const ManageLibrarian = () => {
 
     try {
       const token = localStorage.getItem('token'); // Retrieve the token from localStorage.
-      const response = await axios.post('http://localhost:5000/auth/create-librarian', formData, {
+      const response = await axios.post(`${API_BASE_URL}/auth/create-librarian`, formData, {
         headers: {
           'Authorization': `Bearer ${token}`, // Attach the token in the Authorization header.
           'Content-Type': 'multipart/form-data',

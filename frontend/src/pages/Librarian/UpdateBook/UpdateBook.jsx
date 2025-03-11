@@ -8,10 +8,12 @@ const UpdateBook = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
+  const API_BASE_URL = process.env.VITE_BACKEND_URL;
+
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/book/getAllBooks");
+        const response = await axios.get(`${API_BASE_URL}/book/getAllBooks`);
         setBooks(response.data.books);
       } catch (err) {
         console.error("Error fetching books:", err);
@@ -39,7 +41,7 @@ const UpdateBook = () => {
       }
 
       const response = await axios.put(
-        `http://localhost:5000/book/updateBook/${selectedBook.id}`,
+        `${API_BASE_URL}/book/updateBook/${selectedBook.id}`,
         selectedBook,
         {
           headers: {

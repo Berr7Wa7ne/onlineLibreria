@@ -17,6 +17,8 @@ const AddBook = () => {
   const [error, setError] = useState('');
   const fileInputRef = useRef(null);
 
+  const API_BASE_URL = process.env.VITE_BACKEND_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage('');
@@ -51,7 +53,7 @@ const AddBook = () => {
         },
       };
   
-      const response = await axios.post('http://localhost:5000/book/addBook', formData, config);
+      const response = await axios.post(`${API_BASE_URL}/book/addBook`, formData, config);
       setMessage(response.data.message);
       
       // Clear form fields on successful submission

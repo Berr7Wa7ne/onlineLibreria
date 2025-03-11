@@ -13,7 +13,8 @@ const SignIn = () => {
     const [error, setError] = useState("");
     const [token, setToken] = useState('');
 
-      
+    const API_BASE_URL = process.env.VITE_BACKEND_URL; // Load backend URL from .env
+    console.log("API BASE URL:", process.env.VITE_BACKEND_URL);
       
     // Handle form submission
     const handleLogin = async (e) => {
@@ -25,7 +26,7 @@ const SignIn = () => {
       try {
           console.log("API function triggered");
   
-          const response = await axios.post("http://localhost:5000/auth/login", {
+          const response = await axios.post(`${API_BASE_URL}/auth/login`, {
               email,
               password,
           });
