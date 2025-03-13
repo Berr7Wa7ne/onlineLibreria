@@ -19,7 +19,7 @@ const ManageLibrarian = () => {
     setProfilePhoto(e.target.files[0]);
   };
 
-  const API_BASE_URL = process.env.VITE_BACKEND_URL;
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
   // Function to submit librarian registration form
   const handleSubmit = async (e) => {

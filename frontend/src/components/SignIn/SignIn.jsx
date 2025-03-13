@@ -13,8 +13,8 @@ const SignIn = () => {
     const [error, setError] = useState("");
     const [token, setToken] = useState('');
 
-    const API_BASE_URL = process.env.VITE_BACKEND_URL; // Load backend URL from .env
-    console.log("API BASE URL:", process.env.VITE_BACKEND_URL);
+    const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;// Load backend URL from .env
+    console.log("API BASE URL:", import.meta.env.VITE_BACKEND_URL);
       
     // Handle form submission
     const handleLogin = async (e) => {

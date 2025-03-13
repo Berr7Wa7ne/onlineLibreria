@@ -8,7 +8,7 @@ const OverDueBooks = () => {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
 
-  const API_BASE_URL = process.env.VITE_BACKEND_URL; 
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
   //Function to fetch overdue books
   const fetchOverdueBooks = async () => {

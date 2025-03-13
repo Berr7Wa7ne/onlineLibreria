@@ -29,7 +29,7 @@ const SignUp = () => {
     setFormData({ ...formData, profilePhoto: e.target.files[0] });
   };
 
-  const API_BASE_URL = process.env.VITE_BACKEND_URL;
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
   const handleSignUp = async (e) => {
     e.preventDefault();

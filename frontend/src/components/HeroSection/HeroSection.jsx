@@ -14,7 +14,7 @@ const HeroSection = () => {
     setSearchQuery(e.target.value);
   };
 
-  const API_BASE_URL = process.env.VITE_BACKEND_URL;
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
   const handleSearch = async (e) => {
     e.preventDefault();

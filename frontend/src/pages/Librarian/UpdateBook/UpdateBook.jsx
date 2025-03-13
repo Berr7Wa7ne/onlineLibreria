@@ -8,7 +8,7 @@ const UpdateBook = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
-  const API_BASE_URL = process.env.VITE_BACKEND_URL;
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     const fetchBooks = async () => {

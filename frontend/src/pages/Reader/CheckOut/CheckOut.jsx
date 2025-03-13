@@ -19,7 +19,7 @@ const Checkout = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const booksPerPage = 6; // Adjust based on preference
 
-  const API_BASE_URL = process.env.VITE_BACKEND_URL;
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     const fetchBooks = async () => {

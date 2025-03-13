@@ -11,7 +11,7 @@ const LibrarianDashboard = () => {
     totalUsers: 0,
   });
 
-  const API_BASE_URL = process.env.VITE_BACKEND_URL;
+  const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     const fetchStats = async () => {

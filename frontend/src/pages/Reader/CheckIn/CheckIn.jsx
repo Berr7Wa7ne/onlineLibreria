@@ -8,7 +8,7 @@ const CheckIn = ({ initialCheckouts = [] }) => {
 const [checkouts, setCheckouts] = useState(initialCheckouts || []);
 const [loading, setLoading] = useState(null); // Track loading per book
 
-const API_BASE_URL = process.env.VITE_BACKEND_URL;
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 // Fetch checkouts when the component mounts
 useEffect(() => {
