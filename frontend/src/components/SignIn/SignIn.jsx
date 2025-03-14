@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import mail from '../../assets/mail.png';
 import key from '../../assets/key.png';
@@ -75,14 +75,14 @@ const SignIn = () => {
           Login
         </h2>
         {/* Sign In / Sign Up Toggle Buttons */}
-        <div className="flex bg-[#F9F9FB] rounded-[12px] w-full h-[56px] p-[4px] gap-[4px] mb-7">
-          <button className="flex-1 h-[48px] rounded-[8px] py-3 px-4 text-[#666D80]">
-            Sign In
-          </button>
-          <button className="flex-1 h-[48px] rounded-[8px] py-3 px-4 bg-white border border-[#DFE1E6]">
-            Sign Up
-          </button>
-        </div>
+<div className="flex bg-[#F9F9FB] rounded-[12px] w-full h-[56px] p-[4px] gap-[4px] mb-7">
+  <Link to="/login" className="flex-1 h-[48px] rounded-[8px] py-3 px-4 text-[#666D80] flex items-center justify-center">
+    Sign In
+  </Link>
+  <Link to="/register" className="flex-1 h-[48px] rounded-[8px] py-3 px-4 bg-white border border-[#DFE1E6] flex items-center justify-center">
+    Sign Up
+  </Link>
+</div>
         {/* Input Fields */}
         <form className="flex flex-col space-y-4">
 

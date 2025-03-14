@@ -73,7 +73,7 @@ useEffect(() => {
       <div className="overflow-x-auto mt-8">
         <table className="min-w-full bg-white dark:bg-gray-900 border border-gray-300 shadow-md rounded-lg">
           <thead className="bg-gray-100 dark:bg-gray-900">
-            <tr className="text-left">
+            <tr className="text-left text-gray-400">
               <th className="py-2 px-4 border-b">Book Title</th>
               <th className="py-2 px-4 border-b">Due Date</th>
               <th className="py-2 px-4 border-b">Status</th>
@@ -92,7 +92,7 @@ useEffect(() => {
                     {checkout.status !== "RETURNED" ? (
                     <button
                         onClick={() => handleCheckIn(checkout.id)}
-                        className="bg-[blue] hover:bg-blue-700 text-white px-4 py-2 rounded-md transition"
+                        className="bg-[purple] hover:bg-blue-700 text-white px-4 py-2 rounded-md transition"
                     >
                         Check In
                     </button>

@@ -67,50 +67,50 @@ const UpdateBook = () => {
     <div className="pt-16">
       <TopNavbar />
     <div className="max-w-6xl mx-auto p-8 bg-gray-100 dark:bg-gray-900">
-      <h2 className="text-2xl font-bold mb-4 text-center font-sf-pro-rounded text-[orange] dark:text-gray-100">Manage Books</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center font-sf-pro-rounded text-[orange]">Manage <span className="font-courgette text-[purple]">Books</span></h2>
       {message && <p className="text-green-500">{message}</p>}
       {error && <p className="text-red-500">{error}</p>}
 
       {/* Scrollable Table */}
       <div className="overflow-x-auto">
         <table className="w-full border-collapse border border-gray-300 text-sm">
-          <thead>
-            <tr className="bg-gray-200 dark:bg-gray-800">
-              <th className="border border-gray-300 p-2">ID</th>
-              <th className="border border-gray-300 p-2">Title</th>
-              <th className="border border-gray-300 p-2">ISBN</th>
-              <th className="border border-gray-300 p-2">Cover Page</th>
-              <th className="border border-gray-300 p-2">Revision No.</th>
-              <th className="border border-gray-300 p-2">Authors</th>
-              <th className="border border-gray-300 p-2">Genre</th>
-              <th className="border border-gray-300 p-2">Publisher</th>
-              <th className="border border-gray-300 p-2">Published Date</th>
-              <th className="border border-gray-300 p-2">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {books.map((book) => (
-              <tr key={book.id} className="border border-gray-300 text-xs">
-                <td className="p-2">{book.id}</td>
-                <td className="p-2">{book.title}</td>
-                <td className="p-2">{book.isbn}</td>
-                <td className="p-2">{book.coverPage}</td>
-                <td className="p-2">{book.revisionNumber}</td>
-                <td className="p-2">{book.authors}</td>
-                <td className="p-2">{book.genre}</td>
-                <td className="p-2">{book.publisher}</td>
-                <td className="p-2">{new Date(book.publishedDate).toDateString()}</td>
-                <td className="p-2">
-                  <button
-                    onClick={() => handleEdit(book)}
-                    className="bg-[purple] dark:bg-slate-400 text-white px-3 py-1 rounded text-xs"
-                  >
-                    Edit
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+        <thead>
+  <tr className="bg-gray-200 dark:bg-gray-800 text-gray-400">
+    <th className="border-r border-gray-300 p-2">ID</th>
+    <th className="border-r border-gray-300 p-2">Title</th>
+    <th className="border-r border-gray-300 p-2">ISBN</th>
+    <th className="border-r border-gray-300 p-2">Cover Page</th>
+    <th className="border-r border-gray-300 p-2">Revision No.</th>
+    <th className="border-r border-gray-300 p-2">Authors</th>
+    <th className="border-r border-gray-300 p-2">Genre</th>
+    <th className="border-r border-gray-300 p-2">Publisher</th>
+    <th className="border-r border-gray-300 p-2">Published Date</th>
+    <th className="p-2">Actions</th>
+  </tr>
+</thead>
+<tbody>
+  {books.map((book) => (
+    <tr key={book.id} className="border border-gray-300 text-xs">
+      <td className="border-r border-gray-300 p-2">{book.id}</td>
+      <td className="border-r border-gray-300 p-2">{book.title}</td>
+      <td className="border-r border-gray-300 p-2">{book.isbn}</td>
+      <td className="border-r border-gray-300 p-2">{book.coverPage}</td>
+      <td className="border-r border-gray-300 p-2">{book.revisionNumber}</td>
+      <td className="border-r border-gray-300 p-2">{book.authors}</td>
+      <td className="border-r border-gray-300 p-2">{book.genre}</td>
+      <td className="border-r border-gray-300 p-2">{book.publisher}</td>
+      <td className="border-r border-gray-300 p-2">{new Date(book.publishedDate).toDateString()}</td>
+      <td className="p-2">
+        <button
+          onClick={() => handleEdit(book)}
+          className="bg-[purple] text-white px-3 py-1 rounded text-xs"
+        >
+          Edit
+        </button>
+      </td>
+    </tr>
+  ))}
+</tbody>
         </table>
       </div>
 

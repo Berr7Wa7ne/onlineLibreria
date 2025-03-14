@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import google from '../../assets/google.png';
 
@@ -64,9 +64,10 @@ const SignUp = () => {
 
           {error && <p className="text-red-500 text-sm">{error}</p>}
 
-          <button type='submit' className="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-500" disabled={loading}>
+          <button type='submit' className="w-full bg-[purple] text-white py-3 rounded-lg hover:bg-indigo-500" disabled={loading}>
             {loading ? "Creating Account..." : "Create Account"}
           </button>
+          <Link to="/login" className='text-[orange] font-sf-pro-rounded text-center'>I already have an account</Link>
         </form>
 
         <div className="flex items-center my-6">
@@ -75,7 +76,7 @@ const SignUp = () => {
           <div className="flex-1 h-[2px] bg-gray-300"></div>
         </div>
 
-        <button className="w-full flex items-center justify-center gap-2 py-3 border rounded-lg">
+        <button className="w-full flex items-center justify-center gap-2 py-3">
           <img src={google} alt="Google" className="w-5 h-5" />
           <span>Sign Up with Google</span>
         </button>
