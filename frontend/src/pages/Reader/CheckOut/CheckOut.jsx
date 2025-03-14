@@ -99,7 +99,7 @@ const Checkout = () => {
             <div key={book.id} className="bg-white dark:bg-gray-900 p-6 w-full flex flex-col items-center space-y-4 hover:shadow-xl transform transition-all scale-105">
               {book.bookPhoto && (
                 <img
-                  src={`http://localhost:5000/${book.bookPhoto}`}
+                  src={`${API_BASE_URL}/${book.bookPhoto}`}
                   alt={book.title}
                   className="w-40 h-56 object-cover rounded-lg"
                 />
@@ -199,7 +199,7 @@ const Checkout = () => {
             <div className="text-center">
               {selectedBook.bookPhoto && (
                 <img
-                  src={`http://localhost:5000/${selectedBook.bookPhoto}`}
+                  src={`${API_BASE_URL}/${selectedBook.bookPhoto}`}
                   alt={selectedBook.title}
                   className="w-20 h-26 object-cover rounded-lg mx-auto mb-4"
                 />
