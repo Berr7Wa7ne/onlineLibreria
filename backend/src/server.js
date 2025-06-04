@@ -8,6 +8,8 @@ const jwt = require('jsonwebtoken');
 const PORT = process.env.PORT || 5000;
 const prisma = new PrismaClient();
 
+console.log("Using DATABASE_URL:", process.env.DATABASE_URL);
+
 // Function to initialize Superadmin
 async function initializeSuperAdmin() {
   try {
